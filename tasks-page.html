@@ -43,6 +43,8 @@
     ></script>
 
     <!-- custom JS  -->
+    <script defer src="./assets/js/profile-page.js"></script>
+
     <script defer src="./assets/js/task-page.js"></script>
   </head>
   <!--=========NOTE : THIS FILE PAGE REQUIRES BOOTSTARP TO WORK EFFECTIVELY============-->
@@ -57,9 +59,18 @@
         ></button>
 
         <div class="side-bar__icons center-sidebar__icons">
-          <i class="bi bi-person-circle divide-icons"></i>
+          <!-- profile page  -->
+          <a href="profilepage.html">
+            <i class="bi bi-person-circle divide-icons" title="profile"></i>
+          </a>
+          <!-- </a> End of profile page  -->
+
+          <!-- task page  -->
+          <a href="./tasks-page.html" class="active">
+            <i class="bi bi-list-task divide-icons" title="Tasks"></i>
+          </a>
+          <!--end of task page -->
           <i class="bi bi-menu-button-wide divide-icons"></i>
-          <i class="bi bi-list-task divide-icons active" title="Tasks"></i>
           <i class="bi bi-gear divide-icons"></i>
           <i class="bi bi-award divide-icons"></i>
           <i class="bi bi-box-arrow-left divide-icons"></i>
@@ -131,7 +142,7 @@
       </div>
 
       <div
-        class="alert hidden alert-success alert-dismissible fade show col-lg-6"
+        class="alert alert-task hidden alert-success alert-dismissible fade show col-lg-6"
         role="alert"
         id="alert-completed"
       >
@@ -146,7 +157,9 @@
         ></button>
       </div>
       <!-- End of task completed Alert-->
-      <div class="count-down-timer d-flex justify-content-center">
+      <div
+        class="count-down-timer count-down-timer-cont d-flex justify-content-center"
+      >
         <p class="count-down-timer-text text-danger"></p>
       </div>
     </main>

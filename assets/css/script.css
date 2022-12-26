@@ -6,6 +6,7 @@
   --dashboard-margin-left: 20rem;
   --default-background: #fff;
   --default-font-size: 1.6rem;
+  --plan-background-color: #161677;
 }
 
 * {
@@ -18,6 +19,7 @@ body {
   font-family: "Roboto";
   background-color: var(--default-background);
   overflow-x: hidden;
+  font-size: var(--default-font-size);
 }
 html {
   font-size: 62.5%;
@@ -45,7 +47,8 @@ html {
   margin-bottom: 2rem;
   cursor: pointer;
 }
-.divide-icons:hover {
+.divide-icons:hover,
+.side-bar__icons a:hover {
   background-color: #4841ff;
   border-radius: 5px;
   padding-left: 1rem;
@@ -58,6 +61,11 @@ html {
 .side-bar__icons {
   display: flex;
   flex-direction: column;
+}
+.side-bar__icons a:link,
+.side-bar__icons a:visited {
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
 }
 .active {
   background-color: #4841ff;
@@ -87,7 +95,7 @@ html {
   padding: 2rem 4rem;
   font-size: 3rem;
 }
-.alert {
+.alert-task {
   font-size: var(--default-font-size);
   position: fixed;
   top: 5px;
@@ -131,4 +139,218 @@ html {
   backdrop-filter: blur(4px);
   z-index: 100;
   transition: all 0.5s;
+}
+
+/* style for profilepage  */
+
+.profile-header {
+  overflow: hidden;
+  transition: all 0.5s;
+  z-index: 997;
+  height: 60px;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  padding: 1.3rem 0;
+  padding: 2rem 17rem;
+}
+.nav {
+  display: flex;
+  flex: auto;
+}
+.search-bar {
+  min-width: 360px;
+  padding: 0 20px;
+  margin-left: 20rem;
+}
+.search-form {
+  width: 100%;
+}
+.search-form input {
+  border: 0;
+  font-size: 14px;
+  color: #012970;
+  border: 1px solid rgba(1, 41, 112, 0.2);
+  padding: 7px 38px 7px 8px;
+  border-radius: 3px;
+  transition: 0.3s;
+  width: 100%;
+}
+.search-form input:focus {
+  outline-color: var(--color-primary);
+}
+.search-form button {
+  border: 0;
+  padding: 0;
+  margin-left: -30px;
+  background: none;
+}
+.search-form button i {
+  color: #012970;
+  font-size: var(--default-font-size);
+}
+.search-form:focus,
+.search-form:hover {
+  outline: none;
+  box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+  border: 1px solid rgba(1, 41, 112, 0.3);
+}
+.profile-banner {
+  position: relative;
+  backdrop-filter: blur(2px);
+  margin-left: 5rem;
+}
+.update-profile {
+  font-size: 2rem;
+}
+.profile-card {
+  padding: 2rem 5rem;
+}
+.edit-btn-cont {
+  margin-left: 3rem;
+}
+.edit-btn {
+  font-size: var(--default-font-size);
+}
+.edit-card {
+  padding: 4rem 4rem;
+}
+.edit-inputs {
+  height: 4rem;
+  font-size: 2rem;
+}
+.edit-input-file {
+  font-size: 2rem;
+}
+.edit-actions-btns {
+  margin-top: 2rem;
+}
+.edit-actions-btns button {
+  font-size: 2rem;
+}
+.main-user-img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+  object-fit: cover;
+}
+.main-user-img img {
+  border-radius: 100%;
+}
+.profile-card-body {
+  display: flex;
+  flex: auto;
+}
+.profile-card-body h1 {
+  font-size: 3rem;
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+.profile-img {
+  display: flex;
+  flex: auto;
+  justify-content: flex-end;
+}
+.img-cont {
+  width: 7rem;
+  height: 7rem;
+  margin-top: -1rem;
+}
+.user-img {
+  width: 75%;
+  border-radius: 100%;
+}
+
+.profile-main {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  font-size: var(--default-font-size);
+}
+.account-card {
+  padding: 2rem 1.5rem;
+  background-color: #4841ff;
+  color: #fff;
+  height: 36.5rem;
+}
+.account-card h1 {
+  font-size: 4rem;
+}
+.action-btns {
+  margin-top: -5rem;
+  font-size: 4rem;
+}
+.btns {
+  padding: 1rem 3rem;
+  font-size: 2.5rem;
+
+  text-transform: capitalize;
+}
+.deposit-btn {
+  margin-left: 2rem;
+}
+.balance {
+  font-size: 3rem;
+  margin-top: 5rem;
+}
+/* modal style  */
+.mod::-webkit-scrollbar {
+  display: none;
+}
+.enter-amount-cont {
+  /* height: 20rem; */
+  padding: 5rem 2rem;
+}
+.input-amount {
+  margin-top: 2rem;
+  height: 5rem;
+  font-size: var(--default-font-size);
+}
+
+.submit {
+  margin-top: 2rem;
+}
+/* overiding bootstrap class */
+
+.card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.2);
+}
+/* end overiding bootstrap class */
+.processing-card {
+  position: relative;
+  padding: 3rem 5rem;
+}
+.processing-txt {
+  font-size: var(--default-font-size);
+}
+.waiting-spinner {
+  position: absolute;
+  top: 3rem;
+  left: 32rem;
+}
+.input-error {
+  border: 1px solid red;
+}
+.alert-profile {
+  position: fixed;
+  top: 10rem;
+  left: 20rem;
+}
+
+/* Deposit page  */
+.deposit-main {
+  padding-left: 10rem;
+  padding-top: 3rem;
+}
+.choose-plans {
+  padding-left: 2rem;
+}
+.plans-img {
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--plan-background-color);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
+  margin: 0 auto;
 }

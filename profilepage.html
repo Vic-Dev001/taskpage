@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StintAd || Profile Page</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./assets/imgs/Blue Vector/favicon.svg"
+      type="image/x-icon"
+    />
+
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:ital,wght@1,400&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap CSS cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <!-- bootstrap icons cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/script.css" />
+
+    <!-- bootstrap cdn JS -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- custom JS  -->
+    <script defer src="./assets/js/task-page.js"></script>
+
+    <script defer src="./assets/js/profile-page.js"></script>
+  </head>
+
+  <body>
+    <!-- sidebar  -->
+    <div class="side-bar">
+      <div class="side-bar__items m">
+        <button
+          type="button"
+          class="btn-close text-center gutter-vertical btn-close-white"
+          aria-label="Close"
+        ></button>
+
+        <div class="side-bar__icons center-sidebar__icons">
+          <!-- profile page  -->
+          <a href="profilepage.html" class="active">
+            <i class="bi bi-person-circle divide-icons" title="profile"></i>
+          </a>
+          <!-- </a> End of profile page  -->
+
+          <!-- task page  -->
+          <a href="./tasks-page.html">
+            <i class="bi bi-list-task divide-icons" title="Tasks"></i>
+          </a>
+          <!--end of task page -->
+          <i class="bi bi-menu-button-wide divide-icons"></i>
+          <i class="bi bi-gear divide-icons"></i>
+          <i class="bi bi-award divide-icons"></i>
+          <i class="bi bi-box-arrow-left divide-icons"></i>
+        </div>
+      </div>
+    </div>
+    <!-- End of Sidebar-->
+
+    <!-- profile header placeholder  -->
+    <section class="profile-header">
+      <nav class="nav">
+        <div class="nav-brand">Logo</div>
+        <div class="search-bar">
+          <form
+            class="search-form d-flex align-items-center"
+            method="POST"
+            action="#"
+          >
+            <input
+              type="text"
+              name="query"
+              placeholder="Search"
+              title="Enter search keyword"
+            />
+            <button type="submit" title="Search">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="profile-img">
+          <div class="img-cont">
+            <img src="./assets/imgs/user-avatar.png" alt="" class="user-img" />
+          </div>
+        </div>
+      </nav>
+    </section>
+    <main class="profile-main">
+      <!--Profile banner-->
+      <section class="profile-banner">
+        <div class="container row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div
+                class="card-header"
+                style="font-size: 2rem; background-color: #0b5ed7; color: white"
+              >
+                My profile
+              </div>
+              <div class="card-body" id="profile-card ">
+                <h1 class="card-title" style="font-size: 4rem">
+                  <span id="profile-firstname">Victor</span>
+                  <span id="profile-lastname">Ogbonna</span>
+                </h1>
+                <div class="card-text hidden mt-4" id="profile-field">
+                  <p class="email">Email: <span id="email-field"></span></p>
+                  <p class="address">
+                    Address: <span id="address-field"></span>
+                  </p>
+                  <p class="phone">
+                    Phone Number: <span id="phone-number"></span>
+                  </p>
+                </div>
+
+                <div class="account-field">
+                  <h1 class="account-info">Account Informations</h1>
+                  <p class="account-name">
+                    Account Name: <span id="account-name-field"></span>
+                  </p>
+                  <p class="account-number">
+                    Account Number: <span id="account-number-field"></span>
+                  </p>
+                  <p class="account-bank">
+                    Bank: <span id="bank-name-field"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 update-profile">
+            <div class="card">
+              <div
+                class="card-header"
+                style="background-color: #0b5ed7; color: white"
+              >
+                Update Profile
+              </div>
+              <div class="card-body row">
+                <div class="user-name col-6">
+                  <label for="" class="form-label"
+                    >Username<span style="font-size: 1.5rem; color: grey">
+                      (not editable)</span
+                    >
+                  </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Vic-coded"
+                    aria-label="Disabled input example"
+                    disabled
+                    style="font-size: 1.6rem"
+                    id="user-name"
+                  />
+                </div>
+                <div class="user-name col-6">
+                  <label for="email" class="form-label">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    value="viccy@gmail.com"
+                    style="font-size: 1.6rem"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="card-body">
+                <h3
+                  class="card-title text-center"
+                  style="background-color: #0b5ed7; padding: 2rem; color: white"
+                >
+                  Fill in for withdrawal
+                </h3>
+                <form action="" class="row">
+                  <div class="col-6">
+                    <label for="first-name" class="form-label">FirstName</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="first-name"
+                      value="Victor"
+                      style="font-size: 1.6rem"
+                      required
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="last-name" class="form-label">LastName</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="last-name"
+                      value="Ogbonna"
+                      style="font-size: 1.6rem"
+                      required
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="address" class="form-label">Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      style="font-size: 1.6rem"
+                      required
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="phone"
+                      style="font-size: 1.6rem"
+                      required
+                    />
+                  </div>
+                  <div class="update-btn d-flex justify-content-end mt-4">
+                    <button
+                      class="btn btn-success"
+                      style="font-size: 1.6rem"
+                      id="update"
+                    >
+                      Update profile
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">
+                  Balance: ₦<span id="balance">0</span>
+                </h1>
+                <div class="row">
+                  <div class="col-4">
+                    <button
+                      class="btn btn-success"
+                      style="font-size: 2rem"
+                      id="deposit-btn"
+                    >
+                      Deposit
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button
+                      class="btn btn-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#withdrwalModal"
+                      style="font-size: 2rem"
+                    >
+                      Withdraw
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card" style="height: 27rem">
+              <div class="card-header">Transaction History</div>
+              <div class="card-body">
+                <p
+                  class="card-text d-block"
+                  style="align-items: center; color: grey"
+                >
+                  Your History will appear here
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="modal fade" id="withdrwalModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" style="font-size: 2rem">Withdrawal</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="card">
+                <div class="card-body p-5">
+                  <form action="" class="row">
+                    <div class="col-12">
+                      <label for="account-number" class="form-label"
+                        >Amount</label
+                      >
+
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="account-number"
+                        style="font-size: 1.6rem"
+                        required
+                      />
+                    </div>
+                    <div class="col-12 mt-3">
+                      <input
+                        type="submit"
+                        value="Submit"
+                        class="btn btn-success"
+                        style="font-size: 1.6rem"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Withdraw Modal-->
+
+      <!-- Update Account alert  -->
+      <div class="card alert-profile hidden">
+        <div class="card-body">
+          <div
+            class="alert alert-primary alert-dismissible fade show"
+            role="alert"
+          >
+            <h1 class="card-title">Update Account Information</h1>
+
+            <form class="row g-3 mt-5">
+              <div class="col-12">
+                <label for="account-name" class="form-label"
+                  >Account Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="account-name"
+                  style="font-size: 1.6rem"
+                />
+              </div>
+              <div class="col-12">
+                <label for="account-number" class="form-label"
+                  >Account Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="account-number1"
+                  style="font-size: 1.6rem"
+                />
+              </div>
+              <div class="col-12">
+                <label for="bank" class="form-label">Bank Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bank"
+                  style="font-size: 1.6rem"
+                />
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="font-size: 1.6rem"
+                  id="submit-account"
+                >
+                  Submit
+                </button>
+                <button
+                  type="reset"
+                  class="btn btn-secondary"
+                  style="font-size: 1.6rem"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+<!-- 
+      <section class="profile-banner">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card d-flex profile-card">
+              <div class="card-body profile-card-body">
+                <div class="main-user-img">
+                  <img
+                    src="./assets/imgs/user-avatar.png"
+                    alt=""
+                    class=""
+                    width="100%"
+                  />
+                </div> -->
+<!-- user name  -->
+<!-- <h1 class="card-title" id="user-name">Nwoke Emmanuel</h1>
+              </div>
+
+              <div class="edit-btn-cont">
+                <button
+                  class="btn edit-btn btn-primary"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal"
+                >
+                  Edit profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+<!--End of profile banner-->
+<!--Edit profile modal-->
+<!-- <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Profile</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="card edit-card">
+                edit profile Form -->
+<!-- <form class="row">
+                  <div class="col-6 edit-inputs">
+                    <input
+                      type="text"
+                      class="form-control edit-inputs"
+                      id="edit-input-value"
+                    />
+                  </div>
+                  <div class="col-6 edit-inputs">
+                    <input
+                      class="form-control edit-input-file"
+                      type="file"
+                      id="edit-picture"
+                    />
+                  </div>
+                  <div class="edit-actions-btns">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      id="save-changes"
+                    >
+                      Save changes
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                      Reset
+                    </button>
+                  </div>
+                </form> -->
+<!-- end of edit pprofile Form -->
+<!-- </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+<!-- End edit profile Modal-->
+<!-- <div class="account-cont container">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <i class="bi bi-info-circle text-danger"></i> Important
+              Information! You must perform tasks before placing for withdrawal
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 processing-cont hidden"></div>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card account-card">
+              <h1 class="card-title">Account Balance</h1>
+              <div class="card-body balance-details">
+                <p class="balance">₦<span id="account-balance">5000</span></p>
+              </div>
+              <div class="action-btns d-flex">
+                <button
+                  type="button"
+                  class="btn btn-danger btn-lg withdraw-btn btns"
+                  data-bs-toggle="modal"
+                  data-bs-target="#withdrawalModal"
+                >
+                  withdraw
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success btn-lg deposit-btn btns"
+                  data-bs-toggle="modal"
+                  data-bs-target="#depositModal"
+                >
+                  Deposit
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <img
+                src="./assets/GIFS/STINTAD (6).gif"
+                alt=""
+                class="card-img"
+              />
+            </div>
+          </div>
+        </div> -->
+<!-- withdrawal modal  -->
+<!-- <div
+          class="modal mod-widthdraw fade"
+          id="withdrawalModal"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title">Withdrawal</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="col-lg-12">
+                    <div class="card enter-amount-cont">
+                      <div class="card-body">
+                        <h4 class="card-title">Enter amount to withdraw</h4>
+                        <form class="row">
+                          <div class="col-4">
+                            <input
+                              type="number"
+                              class="form-control input-amount"
+                              id="withdrawAmmount"
+                              placeholder="₦00.00"
+                            />
+                            <span
+                              class="invalid-amount hidden"
+                              style="color: red"
+                              >invalid amount</span
+                            >
+                            <input
+                              type="submit"
+                              value="Withdraw"
+                              class="btn btn-success btns submit"
+                              id="withdrawal-btn"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+<!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div> -->
+<!-- </div>
+        </div> -->
+<!-- End withrawal Modal-->
+
+<!-- Deposit modal  -->
+<!-- <div class="modal mod fade" id="depositModal" tabindex="-1">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title">Deposit</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="col-lg-12">
+                    <div class="card enter-amount-cont">
+                      <div class="card-body">
+                        <h4 class="card-title">Enter amount to deposit</h4>
+                        <form class="row">
+                          <div class="col-4">
+                            <input
+                              type="number"
+                              class="form-control input-amount"
+                              id="inputNanme4"
+                              placeholder="₦00.00"
+                            />
+                            <input
+                              type="submit"
+                              value="Deposit"
+                              class="btn btn-success btns submit"
+                              id="deposit"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+<!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- End of deposit modal-->
+<!-- </div> -->

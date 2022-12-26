@@ -10,38 +10,74 @@ const alertCompleted = document.querySelector("#alert-completed");
 const adsImgs = document.querySelector("#ads-imgs");
 const overlay = document.querySelector(".overlay");
 const countDownText = document.querySelector(".count-down-timer-text");
+const countDownCont = document.querySelector(".count-down-timer-cont");
 
 // conditions for performing tasks
-let count, canPerformTask, totalTasks, maxTask;
+let count, canPerformTask, totalTasks;
 
-const countDownTimer = function () {
-  const intervalId = setInterval(() => {
-    const date = new Date();
+function startTimer(duration) {
+  let timer = duration,
+    hours,
+    minutes,
+    seconds;
+  setInterval(function () {
+    hours = parseInt(timer / 3600, 10);
+    minutes = parseInt((timer % 3600) / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-    let hour = 24;
-    let min = 60 - date.getMinutes();
-    let secs = 60 - date.getSeconds();
-    if ((min + "").length == 1 && (secs + "").length == 1) {
-      min = "0" + min;
-      secs = "0" + secs;
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    localStorage.setItem("hours", hours);
+    localStorage.setItem("seconds", seconds);
+    localStorage.setItem("minutes", minutes);
+    countDownText.innerHTML = hours + ":" + minutes + ":" + seconds;
+
+    if (--timer <= 0) {
+      timer = duration;
+      clearInterval(timer);
+      canPerformTask = true;
+      localStorage.removeItem("timer");
     }
-    countDownText.innerHTML = hour + ":" + min + ":" + secs;
   }, 1000);
-};
+}
+
+let hours = 24; // Set the number of hours for the countdown timer
+let minutes = 0; // Set the number of minutes for the countdown timer (0 by default)
+let seconds = 0; // Set the number of seconds for the countdown timer (0 by default)
+
+// Calculate the total number of seconds for the countdown timer
+const duration = hours * 3600 + minutes * 60 + seconds;
+
 // initialize task
 const initialize = function () {
   count = 0;
   canPerformTask = true;
   totalTasks = 9;
-  maxTask = 4;
 };
-// initializing conditions to perfor tasks
+// initializing conditions to perform tasks
 initialize();
 
-const performTask = function () {
-  if (canPerformTask === true && count <= totalTasks) {
-    count++;
+const updatecountDown = function () {
+  if (localStorage.getItem("timer")) {
+    localStorage.getItem("timer");
 
+    canPerformTask = false;
+    startTimer(duration);
+    taskCounter.forEach((el) => (el.innerHTML = "Today's task completed"));
+    startBtn.classList.add("hidden");
+    // update account function
+    const acctBal = 5000;
+    const percentage = (acctBal * 0.1) / 2;
+    const newBal = acctBal + percentage;
+    localStorage.setItem("balance", +newBal);
+  }
+};
+updatecountDown();
+const performTask = function (e) {
+  console.log(e);
+  if (canPerformTask && count <= totalTasks) {
     // display spinners
     const displaySpinnner = async () => {
       spinner.classList.remove("hidden");
@@ -51,6 +87,7 @@ const performTask = function () {
         spinner.classList.add("hidden");
         overlay.classList.add("hidden");
       }, 3000);
+      count++;
     };
 
     // displayAdsImgs
@@ -84,19 +121,9 @@ const performTask = function () {
     adsImageContainer.classList.add("hidden");
 
     canPerformTask = false;
-    countDownTimer();
+    // localStorage.setItem("perform-task", canPerformTask === false);
+    localStorage.setItem("timer", startTimer(duration));
   }
-  console.log(count);
-  // //Task is completed
-  // if (count === totalTasks && count === !maxTask) {
-  //   alertCompleted.classList.remove("hidden");
-  //   // show alert
-  //   setTimeout(function () {
-  //     alertCompleted.classList.add("hidden");
-  //   }, 4000);
-  //   count = taskCounter.forEach((el) => (el.textContent = "Task completed"));
-  //   taskCounter.forEach((el) => (el.textContent = "Task completed"));
-  // }
 };
 
 startBtn.addEventListener("click", performTask);
