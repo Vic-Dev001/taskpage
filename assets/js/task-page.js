@@ -88,6 +88,7 @@ const performTask = function (e) {
         overlay.classList.add("hidden");
       }, 3000);
       count++;
+      localStorage.setItem("count", count);
     };
 
     // displayAdsImgs
@@ -105,11 +106,26 @@ const performTask = function (e) {
     };
     const updateCounter = async () => {
       await displayAdsImgs();
-      setInterval(function () {
+
+      if (
+        localStorage.getItem("count") !== null &&
+        localStorage.getItem("count") > 0
+      ) {
+        localStorage.setItem("count", count++);
         taskCounter.forEach(
-          (el) => (el.textContent = `${count} / 10 tasks done`)
+          (el) =>
+            (el.textContent = `${localStorage.getItem(
+              "count"
+            )} / 10 tasks done`)
         );
-      }, 4000);
+      } else {
+        taskCounter.forEach(
+          (el) =>
+            (el.textContent = `${localStorage.getItem(
+              "count"
+            )} / 10 tasks done`)
+        );
+      }
     };
     updateCounter();
   } else {
@@ -127,3 +143,10 @@ const performTask = function (e) {
 };
 
 startBtn.addEventListener("click", performTask);
+
+const updateCounter = function () {
+  taskCounter.forEach(
+    (el) => (el.textContent = `${localStorage.getItem("count")} / 10 task done`)
+  );
+};
+updateCounter();
